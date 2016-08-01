@@ -25,7 +25,6 @@ public class StartProgramm {
         String os = "os.name";
         Properties prop = System.getProperties();   //http://lopica.sourceforge.net/os.html
         
-        
         //Check OS
         String needed_os = "Linux";
         if(prop.getProperty(os).equals(needed_os)){
@@ -34,6 +33,8 @@ public class StartProgramm {
             System.out.println("Does not run on "+prop.getProperty(os));
             System.exit(0);
         }
+        
+        //Check if mpd is installed
+        
     }
-    
 }
