@@ -5,13 +5,9 @@
  */
 package com.raspberryradio;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import com.raspberryradio.mpd.Mpd;
 import java.util.Properties;
 
-import com.raspberryradio.*;
 /**
  *
  * @author Felix
@@ -39,8 +35,9 @@ public class StartProgramm {
             //System.exit(0);
         }
         
-        //Check if mpd is installed
-        String str = "echo \"Hello, World!\"";
-        ExecuteCommand.executeCMD(str);
+        //Check if mpd is running
+        Mpd.does_run();
+        
+        
     }
 }

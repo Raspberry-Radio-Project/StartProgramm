@@ -9,14 +9,16 @@ import java.io.InputStreamReader;
  * @author Felix
  */
 public class ExecuteCommand {
-    public static void executeCMD(String str){
+    public static String executeCMD(String str){
         Process p;
-        String s;
+        String s1;
+        String s2 = "";
         try{
            p = Runtime.getRuntime().exec(str);
            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-           while((s = br.readLine())!= null) {
-               System.out.println("line: " + s);
+           while((s1 = br.readLine())!= null) {
+               System.out.println("line: " + s1);
+               s2 = s1;
            }
            p.waitFor();
            System.out.println("exit: " + p.exitValue());
@@ -24,5 +26,6 @@ public class ExecuteCommand {
         }catch(IOException | InterruptedException e){
             System.out.println(e);
         }
+        return s2;
     }
 }
