@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Properties;
 
+import com.raspberryradio.*;
 /**
  *
  * @author Felix
@@ -39,19 +40,7 @@ public class StartProgramm {
         }
         
         //Check if mpd is installed
-        String s;
-        Process p;
-        try{
-           p = Runtime.getRuntime().exec("echo \"Hello, World!\" ");
-           BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-           while((s = br.readLine())!= null) {
-               System.out.println("line: " + s);
-           }
-           p.waitFor();
-           System.out.println("exit: " + p.exitValue());
-           p.destroy();
-        }catch(IOException | InterruptedException e){
-            System.out.println(e);
-        }
+        String str = "echo \"Hello, World!\"";
+        ExecuteCommand.executeCMD(str);
     }
 }
