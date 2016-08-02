@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.raspberryradio.mpd;
 
-/**
- *
- * @author Felix
- */
+import com.raspberryradio.ExecuteCommand;
+
 public class MPD_Functions {
-    public void setVolume(int percent){
-        
-        
+
+    public void setVolume(int percent) {
+        String percent_str = Integer.toString(percent);
+        String str = "mpc volume " + percent_str;
+        ExecuteCommand.executeCMD(str);
     }
 }
