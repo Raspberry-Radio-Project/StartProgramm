@@ -42,7 +42,7 @@ public class StartProgramm {
         String s;
         Process p;
         try{
-           p = Runtime.getRuntime().exec("sudo apt-get install mpd");
+           p = Runtime.getRuntime().exec("echo \"Hello, World!\" ");
            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
            while((s = br.readLine())!= null) {
                System.out.println("line: " + s);
