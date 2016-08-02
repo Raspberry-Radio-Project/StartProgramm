@@ -5,6 +5,10 @@
  */
 package com.raspberryradio;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Properties;
 
 /**
@@ -31,10 +35,23 @@ public class StartProgramm {
             
         } else {
             System.out.println("Does not run on "+prop.getProperty(os));
-            System.exit(0);
+            //System.exit(0);
         }
         
         //Check if mpd is installed
-        
+        String s;
+        Process p;
+        try{
+           p = Runtime.getRuntime().exec("sudo apt-get install mpd");
+           BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+           while((s = br.readLine())!= null) {
+               System.out.println("line: " + s);
+           }
+           p.waitFor();
+           System.out.println("exit: " + p.exitValue());
+           p.destroy();
+        }catch(IOException | InterruptedException e){
+            System.out.println(e);
+        }
     }
 }

@@ -5,10 +5,10 @@
  */
 package com.raspberryradio.buttons;
 
-/**
- *
- * @author Felix
- */
+/*
+For pyhsical buttons.
+Communication with GPIO-Pins
+*/
 public class Buttons {
     
 }
