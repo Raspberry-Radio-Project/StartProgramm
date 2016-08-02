@@ -32,7 +32,7 @@ public class StartProgramm {
             
         } else {
             System.out.println("Does not run on "+prop.getProperty(os));
-            //System.exit(0);
+            System.exit(0);
         }
         
         //Check if mpd is running
