@@ -27,6 +27,8 @@ public class StartProgramm {
 
         //Check if mpd is running
         Mpd.does_run();
-
+        
+        //Do we have root rights?
+        ExecuteCommand.rootRights();
     }
 }

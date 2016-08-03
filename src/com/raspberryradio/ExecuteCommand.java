@@ -10,10 +10,16 @@ import java.io.InputStreamReader;
  */
 public class ExecuteCommand {
 
+    private boolean rootRights;
+
+    public ExecuteCommand() {
+        this.rootRights = false;
+    }
+
     public static String executeCMD(String str) {
         Process p;
         String s1;
-        String[] s2 = new String[20];
+        String[] s2 = new String[20]; //Creates Array for terminal lines
         int n = 0;
         try {
             p = Runtime.getRuntime().exec(str);
@@ -29,6 +35,21 @@ public class ExecuteCommand {
         } catch (IOException | InterruptedException e) {
             System.out.println(e);
         }
-        return s2[0];
+        return s2[0]; //returns first line
     }
+
+    public static boolean rootRights() {
+
+        String str = "sudo -i";
+        try {
+            int i = Integer.parseInt(executeCMD(str));
+
+            return true;
+
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+    }
+
 }
