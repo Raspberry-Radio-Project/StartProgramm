@@ -38,7 +38,7 @@ public class ExecuteCommand {
         return s2[0]; //returns first line
     }
 
-    public static boolean rootRights() {
+    public static boolean rootPermissions() {
 
         String str = "sudo -i";
         try {
