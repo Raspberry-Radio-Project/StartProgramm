@@ -8,6 +8,7 @@ package com.raspberryradio.touch;
 import java.awt.TextArea;
 import javax.swing.JDialog;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -90,18 +91,18 @@ public class TouchGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         //Creates a new Dialog
         JDialog statusDialog = new JDialog(this);
         statusDialog.setTitle("Status");
         statusDialog.setSize(400, 200);
         statusDialog.setModal(true);
-        
+
         TextArea statusText = new TextArea();
         statusText.setText("Status");
         statusText.setEditable(false);
         statusText.setVisible(true);
-        
+
         statusDialog.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -109,13 +110,13 @@ public class TouchGUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        /*
+ /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -134,13 +135,14 @@ public class TouchGUI extends javax.swing.JFrame {
         }*/
         //</editor-fold>
         //</editor-fold>
-        
-        try{
-            UIManager.setLookAndFeel(com.sun.java.swing.plaf.gtk.GTKLookAndFeel);
-        }catch(Exception e){
-            
-        }catch()
-        
+        try {
+            UIManager.setLookAndFeel(
+            UIManager.getCrossPlatformLookAndFeelClassName()
+            );
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            System.out.println(e);
+        }
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
