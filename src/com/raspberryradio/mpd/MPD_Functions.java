@@ -13,6 +13,9 @@ public class MPD_Functions {
         String str = "mpc update";
         ExecuteCommand.executeCMD(str);
     }
+    public void status(){
+        
+    }
     public void loadPlaylist(){
         String str = "mpc load playlist";
         ExecuteCommand.executeCMD(str);

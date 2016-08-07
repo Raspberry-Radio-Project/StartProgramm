@@ -5,8 +5,10 @@
  */
 package com.raspberryradio.touch;
 
+import com.raspberryradio.ExecuteCommand;
 import java.awt.TextArea;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -32,13 +34,17 @@ public class TouchGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RaspberryRadio");
@@ -56,8 +62,17 @@ public class TouchGUI extends javax.swing.JFrame {
         jMenu3.setToolTipText("");
         jMenuBar2.add(jMenu3);
 
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
+        jMenu2.setText("Options");
+
+        jMenuItem4.setText("Reboot PI");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar2.add(jMenu2);
 
         jMenu1.setText("Help");
 
@@ -97,14 +112,24 @@ public class TouchGUI extends javax.swing.JFrame {
         statusDialog.setTitle("Status");
         statusDialog.setSize(400, 200);
         statusDialog.setModal(true);
+        
+        JLabel statusLabelTime = new JLabel("Localtime: " );
+        JLabel statusLabelMPD = new JLabel("MPD status");
+        statusDialog.add(statusLabelTime);
+        
 
-        TextArea statusText = new TextArea();
-        statusText.setText("Status");
-        statusText.setEditable(false);
-        statusText.setVisible(true);
-
+        
         statusDialog.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        if(ExecuteCommand.rootPermissions()){
+            ExecuteCommand.executeCMD("reboot");
+        }else{
+            System.out.println("No permissions to reboot");
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,10 +179,12 @@ public class TouchGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

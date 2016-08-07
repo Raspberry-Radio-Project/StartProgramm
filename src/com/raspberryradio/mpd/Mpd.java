@@ -17,7 +17,11 @@ public class Mpd {
         if (i < 0 || i < 9999) {
             System.out.println("MPD is installed");
         } else {
-            System.out.println("MPD is NOT installed");
+            if(ExecuteCommand.rootPermissions()){
+                ExecuteCommand.executeCMD("sudo apt-get install mpd");
+            }else{
+                System.out.println("MPD is NOT installed");
+            }
         }
 
         return b;
