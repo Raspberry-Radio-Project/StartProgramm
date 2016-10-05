@@ -1,6 +1,6 @@
 package com.raspberryradio;
 
-import com.raspberryradio.mpd.Mpd;
+//import com.raspberryradio.mpd.Mpd;
 import java.util.Properties;
 
 public class StartProgramm {
@@ -26,7 +26,7 @@ public class StartProgramm {
         }
 
         //Check if mpd is running
-        Mpd.does_run();
+        //Mpd.does_run();
 
         //Do we have root rights?
         ExecuteCommand.rootPermissions();
