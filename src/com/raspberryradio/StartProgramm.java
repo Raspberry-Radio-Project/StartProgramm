@@ -1,6 +1,7 @@
 package com.raspberryradio;
 
-//import com.raspberryradio.mpd.Mpd;
+import com.raspberryradio.mpd.Mpd;
+import com.raspberryradio.touch.Touch;
 import java.util.Properties;
 
 public class StartProgramm {
@@ -24,11 +25,14 @@ public class StartProgramm {
             System.out.println("Does not run on " + prop.getProperty(os));
             System.exit(0);
         }
-
-        //Check if mpd is running
-        //Mpd.does_run();
-
         //Do we have root rights?
         ExecuteCommand.rootPermissions();
+        
+        //Check if mpd is running
+        Mpd.does_run();
+        
+        Touch touch = new Touch();
+        touch.setVisible(true);
+        
     }
 }
