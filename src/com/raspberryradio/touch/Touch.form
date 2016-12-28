@@ -66,21 +66,17 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="Time" min="-2" pref="105" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Internet" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
-                          <Component id="Bluetooth" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
-                          <Component id="AUX" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
-                          <Component id="jB_AUX" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
-                          <Component id="jB_Neustart" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="431" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jB_Internet" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
+                  <Component id="jB_Bluetooth" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
+                  <Component id="AUX" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
+                  <Component id="jB_USB" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
+                  <Component id="jB_Neustart" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="437" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jL_Time" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -89,15 +85,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Time" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="jL_Time" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="Bluetooth" min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="jB_Bluetooth" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Internet" min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="jB_Internet" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="AUX" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jB_AUX" min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="jB_USB" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace pref="76" max="32767" attributes="0"/>
               <Component id="jB_Neustart" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -106,20 +102,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="Internet">
+    <Component class="javax.swing.JButton" name="jB_Internet">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bluetooth"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InternetActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_InternetActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Bluetooth">
+    <Component class="javax.swing.JButton" name="jB_Bluetooth">
       <Properties>
         <Property name="text" type="java.lang.String" value="Internet"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BluetoothActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_BluetoothActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="AUX">
@@ -130,20 +126,23 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AUXActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="Time">
+    <Component class="javax.swing.JLabel" name="jL_Time">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="15:69"/>
+        <Property name="text" type="java.lang.String" value="--:--"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jB_AUX">
+    <Component class="javax.swing.JButton" name="jB_USB">
       <Properties>
         <Property name="text" type="java.lang.String" value="USB"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_AUXActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_USBActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_Neustart">
