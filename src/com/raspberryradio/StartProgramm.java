@@ -23,7 +23,7 @@ public class StartProgramm {
 
         } else {
             System.out.println("Does not run on " + prop.getProperty(os));
-            System.exit(0);
+            //System.exit(0);   Kann später wieder eingefügt werden
         }
         //Do we have root rights?
         ExecuteCommand.rootPermissions();
@@ -31,8 +31,8 @@ public class StartProgramm {
         //Check if mpd is running
         Mpd.does_run();
         
-        Touch touch = new Touch();
-        touch.setVisible(true);
+        Touch touch = new Touch(); //Erstellt Objekt touch für die Oberfäche
+        touch.setVisible(true); //Macht die GUI sichtbar für den Nutzer
         
     }
 }

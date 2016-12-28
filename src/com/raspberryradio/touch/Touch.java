@@ -36,7 +36,7 @@ public class Touch extends javax.swing.JFrame {
         AUX = new javax.swing.JButton();
         Time = new javax.swing.JLabel();
         jB_AUX = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jB_Neustart = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -64,6 +64,7 @@ public class Touch extends javax.swing.JFrame {
         setTitle("Seminarkurs TGM 12/2: Raspberry-Radio");
         setMaximumSize(new java.awt.Dimension(800, 480));
         setMinimumSize(new java.awt.Dimension(800, 480));
+        setResizable(false);
 
         Internet.setText("Bluetooth");
         Internet.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +97,10 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Neustart");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jB_Neustart.setText("Neustart");
+        jB_Neustart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jB_NeustartActionPerformed(evt);
             }
         });
 
@@ -119,7 +120,7 @@ public class Touch extends javax.swing.JFrame {
                             .addComponent(Bluetooth, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(jB_Neustart))
                         .addGap(0, 431, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -137,7 +138,7 @@ public class Touch extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jB_Neustart)
                 .addContainerGap())
         );
 
@@ -160,11 +161,11 @@ public class Touch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jB_AUXActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jB_NeustartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_NeustartActionPerformed
         // TODO add your handling code here:
         String str = "sudo reboot";
         ExecuteCommand.executeCMD(str);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jB_NeustartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,10 +195,8 @@ public class Touch extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Touch().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Touch().setVisible(true);
         });
     }
 
@@ -207,7 +206,7 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JButton Internet;
     private javax.swing.JLabel Time;
     private javax.swing.JButton jB_AUX;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jB_Neustart;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     // End of variables declaration//GEN-END:variables
