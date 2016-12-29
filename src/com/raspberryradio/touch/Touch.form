@@ -2,7 +2,47 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JDialog" name="jDialog1">
+    <Container class="javax.swing.JDialog" name="jDialog_Internet">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Internet"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[800, 480]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[800, 480]"/>
+        </Property>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="730" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="443" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Internet"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="jDialog_Bluetooth">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -17,7 +57,22 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Container class="javax.swing.JDialog" name="jDialog2">
+    <Container class="javax.swing.JDialog" name="jDialog_AUX">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JDialog" name="jDialog_USB">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -68,7 +123,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jB_Internet" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
                   <Component id="jB_Bluetooth" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
-                  <Component id="AUX" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
+                  <Component id="jB_AUX" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
                   <Component id="jB_USB" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
                   <Component id="jB_Neustart" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -91,7 +146,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jB_Internet" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="AUX" min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="jB_AUX" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jB_USB" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -118,12 +173,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_BluetoothActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="AUX">
+    <Component class="javax.swing.JButton" name="jB_AUX">
       <Properties>
         <Property name="text" type="java.lang.String" value="AUX"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AUXActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_AUXActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_Time">
