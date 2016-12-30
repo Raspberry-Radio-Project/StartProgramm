@@ -38,6 +38,12 @@ public class Touch extends javax.swing.JFrame {
 
         jDialog_Internet = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
+        jB_Play = new javax.swing.JButton();
+        jB_Stop = new javax.swing.JButton();
+        jC_Radiosender = new javax.swing.JComboBox<>();
+        jP_Bild = new javax.swing.JPanel();
+        jS_Volume = new javax.swing.JSlider();
+        jL_note = new javax.swing.JLabel();
         jDialog_Bluetooth = new javax.swing.JDialog();
         jDialog_AUX = new javax.swing.JDialog();
         jDialog_USB = new javax.swing.JDialog();
@@ -49,60 +55,137 @@ public class Touch extends javax.swing.JFrame {
         jB_Neustart = new javax.swing.JButton();
 
         jDialog_Internet.setTitle("Internet");
+        jDialog_Internet.setMaximumSize(new java.awt.Dimension(800, 480));
         jDialog_Internet.setMinimumSize(new java.awt.Dimension(800, 480));
         jDialog_Internet.setPreferredSize(new java.awt.Dimension(800, 480));
         jDialog_Internet.setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel1.setText("Internet");
+
+        jB_Play.setText("PLAY");
+        jB_Play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_PlayActionPerformed(evt);
+            }
+        });
+
+        jB_Stop.setText("STOP");
+        jB_Stop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_StopActionPerformed(evt);
+            }
+        });
+
+        jC_Radiosender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Radiosender","Bailrigg","BigFM","Blackbeats","ClubTimeFM","HousFM" }));
+
+        javax.swing.GroupLayout jP_BildLayout = new javax.swing.GroupLayout(jP_Bild);
+        jP_Bild.setLayout(jP_BildLayout);
+        jP_BildLayout.setHorizontalGroup(
+            jP_BildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jP_BildLayout.setVerticalGroup(
+            jP_BildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 195, Short.MAX_VALUE)
+        );
+
+        jL_note.setForeground(new java.awt.Color(204, 0, 0));
+        jL_note.setText("Wähle einen Radiosender!");
 
         javax.swing.GroupLayout jDialog_InternetLayout = new javax.swing.GroupLayout(jDialog_Internet.getContentPane());
         jDialog_Internet.getContentPane().setLayout(jDialog_InternetLayout);
         jDialog_InternetLayout.setHorizontalGroup(
             jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_InternetLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addContainerGap(730, Short.MAX_VALUE))
+                .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog_InternetLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jDialog_InternetLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jC_Radiosender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog_InternetLayout.createSequentialGroup()
+                                .addComponent(jB_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                                .addComponent(jB_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jP_Bild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jS_Volume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jL_note, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jDialog_InternetLayout.setVerticalGroup(
             jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_InternetLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(443, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jC_Radiosender, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jP_Bild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jS_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_Play)
+                    .addComponent(jB_Stop))
+                .addGap(53, 53, 53)
+                .addComponent(jL_note)
+                .addGap(22, 22, 22))
         );
+
+        jL_note.setVisible(false);
+
+        jDialog_Bluetooth.setTitle("Bluetooth");
+        jDialog_Bluetooth.setMaximumSize(new java.awt.Dimension(800, 480));
+        jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_Bluetooth.setPreferredSize(new java.awt.Dimension(800, 480));
+        jDialog_Bluetooth.setResizable(false);
 
         javax.swing.GroupLayout jDialog_BluetoothLayout = new javax.swing.GroupLayout(jDialog_Bluetooth.getContentPane());
         jDialog_Bluetooth.getContentPane().setLayout(jDialog_BluetoothLayout);
         jDialog_BluetoothLayout.setHorizontalGroup(
             jDialog_BluetoothLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jDialog_BluetoothLayout.setVerticalGroup(
             jDialog_BluetoothLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
+
+        jDialog_AUX.setTitle("AUX");
+        jDialog_AUX.setMaximumSize(new java.awt.Dimension(800, 480));
+        jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_AUX.setPreferredSize(new java.awt.Dimension(800, 480));
+        jDialog_AUX.setResizable(false);
 
         javax.swing.GroupLayout jDialog_AUXLayout = new javax.swing.GroupLayout(jDialog_AUX.getContentPane());
         jDialog_AUX.getContentPane().setLayout(jDialog_AUXLayout);
         jDialog_AUXLayout.setHorizontalGroup(
             jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jDialog_AUXLayout.setVerticalGroup(
             jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
+
+        jDialog_USB.setTitle("USB");
+        jDialog_USB.setMaximumSize(new java.awt.Dimension(800, 480));
+        jDialog_USB.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_USB.setPreferredSize(new java.awt.Dimension(800, 480));
+        jDialog_USB.setResizable(false);
 
         javax.swing.GroupLayout jDialog_USBLayout = new javax.swing.GroupLayout(jDialog_USB.getContentPane());
         jDialog_USB.getContentPane().setLayout(jDialog_USBLayout);
         jDialog_USBLayout.setHorizontalGroup(
             jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jDialog_USBLayout.setVerticalGroup(
             jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -214,6 +297,44 @@ public class Touch extends javax.swing.JFrame {
         ExecuteCommand.executeCMD(str);
     }//GEN-LAST:event_jB_NeustartActionPerformed
 
+    private void jB_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_PlayActionPerformed
+        // TODO add your handling code here:
+        String Radiosender = jC_Radiosender.getName();
+        String Bailrigg = "Bailrigg";
+        String BigFM = "BigFM";
+        String Blackbeats = "Blackbeats";
+        String ClubTimeFM = "ClubTimeFM";
+        String HouseFM = "HouseFM";
+        String noradio = "Radiosender";
+        String nothing = "";
+        
+        jL_note.setVisible(false);
+        
+        if(Radiosender.equals(Bailrigg)){
+            
+        }
+        if(Radiosender.equals(BigFM)){
+            
+        }      
+        if(Radiosender.equals(Blackbeats)){
+            
+        }
+        if(Radiosender.equals(ClubTimeFM)){
+            
+        }
+        if(Radiosender.equals(HouseFM)){
+            
+        }
+        if(Radiosender.equals(noradio)|| Radiosender.equals(nothing)){
+            jL_note.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_jB_PlayActionPerformed
+
+    private void jB_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_StopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_StopActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +366,7 @@ public class Touch extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Touch().setVisible(true);
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -252,12 +374,18 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JButton jB_Bluetooth;
     private javax.swing.JButton jB_Internet;
     private javax.swing.JButton jB_Neustart;
+    private javax.swing.JButton jB_Play;
+    private javax.swing.JButton jB_Stop;
     private javax.swing.JButton jB_USB;
+    private javax.swing.JComboBox<String> jC_Radiosender;
     private javax.swing.JDialog jDialog_AUX;
     private javax.swing.JDialog jDialog_Bluetooth;
     private javax.swing.JDialog jDialog_Internet;
     private javax.swing.JDialog jDialog_USB;
     private static javax.swing.JLabel jL_Time;
+    private javax.swing.JLabel jL_note;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jP_Bild;
+    private javax.swing.JSlider jS_Volume;
     // End of variables declaration//GEN-END:variables
 }
