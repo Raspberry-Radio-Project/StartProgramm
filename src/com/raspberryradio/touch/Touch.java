@@ -6,6 +6,7 @@
 package com.raspberryradio.touch;
 
 import com.raspberryradio.ExecuteCommand;
+import com.raspberryradio.mpd.MPD_Functions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -55,9 +56,7 @@ public class Touch extends javax.swing.JFrame {
         jB_Neustart = new javax.swing.JButton();
 
         jDialog_Internet.setTitle("Internet");
-        jDialog_Internet.setMaximumSize(new java.awt.Dimension(800, 480));
         jDialog_Internet.setMinimumSize(new java.awt.Dimension(800, 480));
-        jDialog_Internet.setPreferredSize(new java.awt.Dimension(800, 480));
         jDialog_Internet.setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -89,6 +88,12 @@ public class Touch extends javax.swing.JFrame {
             jP_BildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 195, Short.MAX_VALUE)
         );
+
+        jS_Volume.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jS_VolumeStateChanged(evt);
+            }
+        });
 
         jL_note.setForeground(new java.awt.Color(204, 0, 0));
         jL_note.setText("Wähle einen Radiosender!");
@@ -130,17 +135,15 @@ public class Touch extends javax.swing.JFrame {
                 .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_Play)
                     .addComponent(jB_Stop))
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
                 .addComponent(jL_note)
-                .addGap(22, 22, 22))
+                .addGap(25, 25, 25))
         );
 
         jL_note.setVisible(false);
 
         jDialog_Bluetooth.setTitle("Bluetooth");
-        jDialog_Bluetooth.setMaximumSize(new java.awt.Dimension(800, 480));
         jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 480));
-        jDialog_Bluetooth.setPreferredSize(new java.awt.Dimension(800, 480));
         jDialog_Bluetooth.setResizable(false);
 
         javax.swing.GroupLayout jDialog_BluetoothLayout = new javax.swing.GroupLayout(jDialog_Bluetooth.getContentPane());
@@ -155,9 +158,7 @@ public class Touch extends javax.swing.JFrame {
         );
 
         jDialog_AUX.setTitle("AUX");
-        jDialog_AUX.setMaximumSize(new java.awt.Dimension(800, 480));
         jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 480));
-        jDialog_AUX.setPreferredSize(new java.awt.Dimension(800, 480));
         jDialog_AUX.setResizable(false);
 
         javax.swing.GroupLayout jDialog_AUXLayout = new javax.swing.GroupLayout(jDialog_AUX.getContentPane());
@@ -172,9 +173,7 @@ public class Touch extends javax.swing.JFrame {
         );
 
         jDialog_USB.setTitle("USB");
-        jDialog_USB.setMaximumSize(new java.awt.Dimension(800, 480));
         jDialog_USB.setMinimumSize(new java.awt.Dimension(800, 480));
-        jDialog_USB.setPreferredSize(new java.awt.Dimension(800, 480));
         jDialog_USB.setResizable(false);
 
         javax.swing.GroupLayout jDialog_USBLayout = new javax.swing.GroupLayout(jDialog_USB.getContentPane());
@@ -299,7 +298,8 @@ public class Touch extends javax.swing.JFrame {
 
     private void jB_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_PlayActionPerformed
         // TODO add your handling code here:
-        String Radiosender = jC_Radiosender.getName();
+        String Radiosender;
+        Radiosender = (String) jC_Radiosender.getSelectedItem();      
         String Bailrigg = "Bailrigg";
         String BigFM = "BigFM";
         String Blackbeats = "Blackbeats";
@@ -335,6 +335,12 @@ public class Touch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jB_StopActionPerformed
 
+    private void jS_VolumeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jS_VolumeStateChanged
+        // TODO add your handling code here:
+        Integer vol_i = jS_Volume.getValue();  
+        MPD_Functions.setVolume(vol_i);
+    }//GEN-LAST:event_jS_VolumeStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -366,7 +372,6 @@ public class Touch extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Touch().setVisible(true);
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

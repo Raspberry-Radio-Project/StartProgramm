@@ -4,7 +4,7 @@ import com.raspberryradio.ExecuteCommand;
 
 public class MPD_Functions {
 
-    public void setVolume(int percent) {
+    static public void setVolume(int percent) {
         String percent_str = Integer.toString(percent); //Zahl wird zu String umgewandelt
         String str = "mpc volume " + percent_str;
         ExecuteCommand.executeCMD(str); //String wird weiter an executeCMD() Methode gegeben
