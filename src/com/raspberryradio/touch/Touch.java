@@ -15,10 +15,7 @@ import java.util.Date;
 import java.util.TimerTask;
 import javax.swing.Timer;
 
-/**
- *
- * @author Felix
- */
+
 public class Touch extends javax.swing.JFrame {
 
     /**
