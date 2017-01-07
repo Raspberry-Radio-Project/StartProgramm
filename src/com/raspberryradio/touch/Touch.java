@@ -7,18 +7,8 @@ package com.raspberryradio.touch;
 
 import com.raspberryradio.ExecuteCommand;
 import com.raspberryradio.mpd.MPD_Functions;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimerTask;
-import javax.swing.Timer;
 
-/**
- *
- * @author Felix
- */
+
 public class Touch extends javax.swing.JFrame {
 
     /**
@@ -55,7 +45,6 @@ public class Touch extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jDialog_USB = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jSlider1 = new javax.swing.JSlider();
         jButton1 = new javax.swing.JButton();
@@ -253,8 +242,6 @@ public class Touch extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         jLabel2.setText("USB");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -281,7 +268,7 @@ public class Touch extends javax.swing.JFrame {
         });
 
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel3.setText("Wähle einen USB Stick!");
+        jLabel3.setText("Kein USB-Stick erkannt!");
 
         javax.swing.GroupLayout jDialog_USBLayout = new javax.swing.GroupLayout(jDialog_USB.getContentPane());
         jDialog_USB.getContentPane().setLayout(jDialog_USBLayout);
@@ -297,7 +284,6 @@ public class Touch extends javax.swing.JFrame {
                         .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jDialog_USBLayout.createSequentialGroup()
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,9 +297,7 @@ public class Touch extends javax.swing.JFrame {
             .addGroup(jDialog_USBLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(75, 75, 75)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,19 +434,19 @@ public class Touch extends javax.swing.JFrame {
         jL_note.setVisible(false);
         
         if(Radiosender.equals(Bailrigg)){
-            
+            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls "); //Dateipfad des Onlinestreams
         }
         if(Radiosender.equals(BigFM)){
-            
+            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
         }      
         if(Radiosender.equals(Blackbeats)){
-            
+            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
         }
         if(Radiosender.equals(ClubTimeFM)){
-            
+            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
         }
         if(Radiosender.equals(HouseFM)){
-            
+            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
         }
         if(Radiosender.equals(noradio)|| Radiosender.equals(nothing)){
             jL_note.setVisible(true);
@@ -471,7 +455,7 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_PlayActionPerformed
 
     private void jB_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_StopActionPerformed
-        // TODO add your handling code here:
+        MPD_Functions.pause();
     }//GEN-LAST:event_jB_StopActionPerformed
 
     private void jS_VolumeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jS_VolumeStateChanged
@@ -542,7 +526,6 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jC_Radiosender;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDialog jDialog_AUX;
     private javax.swing.JDialog jDialog_Bluetooth;
     private javax.swing.JDialog jDialog_Internet;

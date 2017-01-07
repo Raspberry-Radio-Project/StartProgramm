@@ -11,18 +11,18 @@ public class MPD_Functions {
     }
     
     //Updatet die Datenbank
-    public void update(){
+    public static void update(){
         String str = "mpc update";
         ExecuteCommand.executeCMD(str);
     }
-    public void status(){
+    public static void status(){
         
     }
     
     //Lädt Playlist für die Wiedergabe
-    public void loadPlaylist(){
-        String str = "mpc load playlist";
-        ExecuteCommand.executeCMD(str);
+    public static void loadPlaylist(String mstr){
+        String str = "mpc load playlist ";
+        ExecuteCommand.executeCMD(str + mstr);
     }
     /*public void playlist(){
         String str = "mpc playlist";
@@ -30,20 +30,20 @@ public class MPD_Functions {
     }*/
     
     //Beginnt Abspielen einer Playlist
-    public void play(int i){
+    public static void play(int i){
         String i_str = Integer.toString(i);
         String str = "mpc play " + i_str;
         ExecuteCommand.executeCMD(str);
     }
     
     //Spielt nächsten Song in der Playlist
-    public void next(){ 
+    public static void next(){ 
         String str = "mpc next";
         ExecuteCommand.executeCMD(str);
     }
     
     //Stoppt bzw. beginnt wieder mit abspielen
-    public void pause(){
+    public static void pause(){
         String str = "mpc pause";
         ExecuteCommand.executeCMD(str);
     }
