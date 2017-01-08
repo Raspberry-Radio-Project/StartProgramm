@@ -455,12 +455,12 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_PlayActionPerformed
 
     private void jB_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_StopActionPerformed
-        MPD_Functions.pause();
+        MPD_Functions.pause(); //Hält die Wiedergabe an
     }//GEN-LAST:event_jB_StopActionPerformed
 
     private void jS_VolumeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jS_VolumeStateChanged
         // TODO add your handling code here:
-        Integer vol_i = jS_Volume.getValue();  
+        Integer vol_i = jS_Volume.getValue();  //Stellt die Lautstärke Digital ein
         MPD_Functions.setVolume(vol_i);
     }//GEN-LAST:event_jS_VolumeStateChanged
 

@@ -40,7 +40,7 @@ public class ExecuteCommand {
 
     public static boolean rootPermissions() {
 
-        String str = "sudo -i";
+        String str = "sudo -i"; //versucht Adminrechte zu ereichen
         try {
             int i = Integer.parseInt(executeCMD(str));
 

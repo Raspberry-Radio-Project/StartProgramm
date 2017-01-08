@@ -13,22 +13,23 @@ public class StartProgramm {
         
         System.out.println("Starting...");
 
-        //Get OS-Name
+        //Betriebssystem wird erkannt bzw. ausgelesen
         String os = "os.name";
         Properties prop = System.getProperties();   //http://lopica.sourceforge.net/os.html
 
-        //Check OS
+        
         String needed_os = "Linux";
+        //Prüft ob Linux das Betriebssystem ist
         if (prop.getProperty(os).equals(needed_os)) {
 
         } else {
             System.out.println("Does not run on " + prop.getProperty(os));
-            //System.exit(0);   Kann später wieder eingefügt werden
+            //System.exit(0);  //Beendet das Programm
         }
-        //Do we have root rights?
+        //Läuft das Programm mit Adminrechten?
         ExecuteCommand.rootPermissions();
         
-        //Check if mpd is running
+        //Prüft ob mpd installiert ist, wenn nicht, wird es installiert. 
         Mpd.does_run();
         
         Touch touch = new Touch(); //Erstellt Objekt touch für die Oberfäche
