@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.raspberryradio.touch;
+package com.raspberryradio;
 
 import com.raspberryradio.ExecuteCommand;
-import com.raspberryradio.mpd.MPD_Functions;
+import com.raspberryradio.MPD_Functions;
 
 
 public class Touch extends javax.swing.JFrame {
@@ -46,9 +46,10 @@ public class Touch extends javax.swing.JFrame {
         jDialog_USB = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jSlider1 = new javax.swing.JSlider();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_Play = new javax.swing.JButton();
+        jButton_Stop = new javax.swing.JButton();
+        jButton_Next = new javax.swing.JButton();
+        jButton_Previous = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jB_Internet = new javax.swing.JButton();
         jB_Bluetooth = new javax.swing.JButton();
@@ -253,17 +254,31 @@ public class Touch extends javax.swing.JFrame {
             .addGap(0, 180, Short.MAX_VALUE)
         );
 
-        jButton1.setText("PLAY");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Play.setText("PLAY");
+        jButton_Play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_PlayActionPerformed(evt);
             }
         });
 
-        jButton2.setText("STOP");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Stop.setText("STOP");
+        jButton_Stop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_StopActionPerformed(evt);
+            }
+        });
+
+        jButton_Next.setText("NEXT");
+        jButton_Next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_NextActionPerformed(evt);
+            }
+        });
+
+        jButton_Previous.setText("PREVIOUS");
+        jButton_Previous.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_PreviousActionPerformed(evt);
             }
         });
 
@@ -283,13 +298,15 @@ public class Touch extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jDialog_USBLayout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3))))
+                            .addComponent(jLabel3)
+                            .addGroup(jDialog_USBLayout.createSequentialGroup()
+                                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_Previous, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(120, 120, 120)
+                                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_Next, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jDialog_USBLayout.setVerticalGroup(
@@ -300,19 +317,20 @@ public class Touch extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                    .addComponent(jButton_Previous)
+                    .addComponent(jButton_Next))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Stop)
+                    .addComponent(jButton_Play))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Seminarkurs TGM 12/2: Raspberry-Radio");
-        setMaximumSize(new java.awt.Dimension(800, 480));
         setMinimumSize(new java.awt.Dimension(800, 480));
         setResizable(false);
 
@@ -434,19 +452,29 @@ public class Touch extends javax.swing.JFrame {
         jL_note.setVisible(false);
         
         if(Radiosender.equals(Bailrigg)){
-            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls "); //Dateipfad des Onlinestreams
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Bailrigg"); //Name des Onlinestreams
+            MPD_Functions.play(1);
         }
         if(Radiosender.equals(BigFM)){
-            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("BigFM");
+            MPD_Functions.play(1);
         }      
         if(Radiosender.equals(Blackbeats)){
-            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Blackbeats");
+            MPD_Functions.play(1);
         }
         if(Radiosender.equals(ClubTimeFM)){
-            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("ClubTimeFM");
+            MPD_Functions.play(1);
         }
         if(Radiosender.equals(HouseFM)){
-            MPD_Functions.loadPlaylist("/var/lib/mpd/playlists/Bailrigg.pls ");
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("HouseFM");
+            MPD_Functions.play(1);
         }
         if(Radiosender.equals(noradio)|| Radiosender.equals(nothing)){
             jL_note.setVisible(true);
@@ -468,17 +496,25 @@ public class Touch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jC_RadiosenderActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PlayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_PlayActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StopActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton_StopActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_NextActionPerformed
+
+    private void jButton_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreviousActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_PreviousActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,10 +557,12 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JButton jB_Play;
     private javax.swing.JButton jB_Stop;
     private javax.swing.JButton jB_USB;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton_Next;
+    private javax.swing.JButton jButton_Play;
+    private javax.swing.JButton jButton_Previous;
+    private javax.swing.JButton jButton_Stop;
     private javax.swing.JComboBox<String> jC_Radiosender;
     private javax.swing.JDialog jDialog_AUX;
     private javax.swing.JDialog jDialog_Bluetooth;
@@ -541,7 +579,6 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jS_Volume;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
     // End of variables declaration//GEN-END:variables
 }

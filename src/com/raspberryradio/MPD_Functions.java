@@ -1,4 +1,4 @@
-package com.raspberryradio.mpd;
+package com.raspberryradio;
 
 import com.raspberryradio.ExecuteCommand;
 
@@ -21,7 +21,7 @@ public class MPD_Functions {
     
     //Lädt Playlist für die Wiedergabe
     public static void loadPlaylist(String mstr){
-        String str = "mpc load playlist ";
+        String str = "mpc load ";
         ExecuteCommand.executeCMD(str + mstr);
     }
     /*public void playlist(){
@@ -48,4 +48,9 @@ public class MPD_Functions {
         ExecuteCommand.executeCMD(str);
     }
     
+    //Löscht die alte Playlist mit den Streams. 
+    public static void clear(){
+        String str = "mpc clear";
+        ExecuteCommand.executeCMD(str);
+    }
 }

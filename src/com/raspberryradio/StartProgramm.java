@@ -1,7 +1,5 @@
 package com.raspberryradio;
 
-import com.raspberryradio.mpd.Mpd;
-import com.raspberryradio.touch.Touch;
 import java.util.Properties;
 
 public class StartProgramm {
@@ -31,6 +29,11 @@ public class StartProgramm {
         
         //Prüft ob mpd installiert ist, wenn nicht, wird es installiert. 
         Mpd.does_run();
+        
+        ExecuteCommand.executeCMD("sudo chmod g+w /var/lib/mpd/music/ /var/lib/mpd/playlists/");
+        ExecuteCommand.executeCMD("sudo chgrp audio /var/lib/mpd/music/ /var/lib/mpd/playlists/");
+        
+        
         
         Touch touch = new Touch(); //Erstellt Objekt touch für die Oberfäche
         touch.setVisible(true); //Macht die GUI sichtbar für den Nutzer

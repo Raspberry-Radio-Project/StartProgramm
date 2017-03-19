@@ -1,4 +1,4 @@
-package com.raspberryradio.mpd;
+package com.raspberryradio;
 
 import com.raspberryradio.ExecuteCommand;
 
@@ -18,7 +18,7 @@ public class Mpd {
             System.out.println("MPD is installed");
         } else {
             if(ExecuteCommand.rootPermissions()){
-                ExecuteCommand.executeCMD("sudo apt-get install mpd mpc"); //Installiert mpd, mpc
+                ExecuteCommand.executeCMD("sudo apt-get install mpd mpc alsa-utils usbmount"); //Installiert mpd, mpc, alsa-utils (Für Soundkarte), usbmount (erkennt automatisch USB-Sticks)
             }else{
                 System.out.println("MPD is NOT installed");
             }
