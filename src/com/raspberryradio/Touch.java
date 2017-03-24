@@ -5,9 +5,6 @@
  */
 package com.raspberryradio;
 
-import com.raspberryradio.ExecuteCommand;
-import com.raspberryradio.MPD_Functions;
-
 
 public class Touch extends javax.swing.JFrame {
 

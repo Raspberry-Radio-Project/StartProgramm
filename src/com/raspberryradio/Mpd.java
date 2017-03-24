@@ -1,7 +1,5 @@
 package com.raspberryradio;
 
-import com.raspberryradio.ExecuteCommand;
-
 public class Mpd {
 
     public static boolean does_run() {

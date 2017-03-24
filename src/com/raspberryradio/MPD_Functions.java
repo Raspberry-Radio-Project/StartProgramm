@@ -1,7 +1,5 @@
 package com.raspberryradio;
 
-import com.raspberryradio.ExecuteCommand;
-
 public class MPD_Functions {
 
     static public void setVolume(int percent) {
