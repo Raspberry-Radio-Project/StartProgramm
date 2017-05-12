@@ -5,6 +5,8 @@
  */
 package com.raspberryradio;
 
+import javax.swing.JOptionPane;
+
 
 public class Touch extends javax.swing.JFrame {
 
@@ -28,18 +30,16 @@ public class Touch extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jB_Play = new javax.swing.JButton();
         jB_Stop = new javax.swing.JButton();
-        jC_Radiosender = new javax.swing.JComboBox<>();
         jP_Bild = new javax.swing.JPanel();
-        jS_Volume = new javax.swing.JSlider();
+        jC_Radiosender = new javax.swing.JComboBox<>();
         jL_note = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jDialog_Bluetooth = new javax.swing.JDialog();
         jDialog_AUX = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jSlider2 = new javax.swing.JSlider();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jB_verbinden = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jDialog_USB = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -48,15 +48,18 @@ public class Touch extends javax.swing.JFrame {
         jButton_Next = new javax.swing.JButton();
         jButton_Previous = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jB_Internet = new javax.swing.JButton();
         jB_Bluetooth = new javax.swing.JButton();
         jB_AUX = new javax.swing.JButton();
-        jL_Time = new javax.swing.JLabel();
         jB_USB = new javax.swing.JButton();
         jB_Neustart = new javax.swing.JButton();
+        jB_Beenden = new javax.swing.JButton();
 
         jDialog_Internet.setTitle("Internet");
-        jDialog_Internet.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_Internet.setAlwaysOnTop(true);
+        jDialog_Internet.setMaximumSize(new java.awt.Dimension(800, 450));
+        jDialog_Internet.setMinimumSize(new java.awt.Dimension(800, 450));
         jDialog_Internet.setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -87,60 +90,64 @@ public class Touch extends javax.swing.JFrame {
         jP_Bild.setLayout(jP_BildLayout);
         jP_BildLayout.setHorizontalGroup(
             jP_BildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jP_BildLayout.createSequentialGroup()
+                .addComponent(jC_Radiosender, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jP_BildLayout.setVerticalGroup(
             jP_BildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
+            .addGroup(jP_BildLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jC_Radiosender, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
-
-        jS_Volume.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jS_VolumeStateChanged(evt);
-            }
-        });
 
         jL_note.setForeground(new java.awt.Color(204, 0, 0));
         jL_note.setText("Wähle einen Radiosender!");
+
+        jButton3.setText("Zurück");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog_InternetLayout = new javax.swing.GroupLayout(jDialog_Internet.getContentPane());
         jDialog_Internet.getContentPane().setLayout(jDialog_InternetLayout);
         jDialog_InternetLayout.setHorizontalGroup(
             jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_InternetLayout.createSequentialGroup()
-                .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog_InternetLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
+                .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jDialog_InternetLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jP_Bild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jL_note, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jC_Radiosender, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jDialog_InternetLayout.createSequentialGroup()
                                     .addComponent(jB_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jB_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jS_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                                .addComponent(jP_Bild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jDialog_InternetLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jDialog_InternetLayout.setVerticalGroup(
             jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_InternetLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jC_Radiosender, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(73, 73, 73)
                 .addComponent(jP_Bild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(32, 32, 32)
-                .addComponent(jS_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(66, 66, 66)
                 .addGroup(jDialog_InternetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB_Play)
-                    .addComponent(jB_Stop))
+                    .addComponent(jB_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jB_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jL_note)
                 .addGap(25, 25, 25))
@@ -149,7 +156,9 @@ public class Touch extends javax.swing.JFrame {
         jL_note.setVisible(false);
 
         jDialog_Bluetooth.setTitle("Bluetooth");
-        jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_Bluetooth.setAlwaysOnTop(true);
+        jDialog_Bluetooth.setMaximumSize(new java.awt.Dimension(800, 450));
+        jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 450));
         jDialog_Bluetooth.setResizable(false);
 
         javax.swing.GroupLayout jDialog_BluetoothLayout = new javax.swing.GroupLayout(jDialog_Bluetooth.getContentPane());
@@ -164,34 +173,31 @@ public class Touch extends javax.swing.JFrame {
         );
 
         jDialog_AUX.setTitle("AUX");
-        jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_AUX.setAlwaysOnTop(true);
+        jDialog_AUX.setMaximumSize(new java.awt.Dimension(800, 450));
+        jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 450));
         jDialog_AUX.setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         jLabel4.setText("AUX");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 669, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
-        );
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("Schließe ein Mobilgerät an!");
 
-        jButton3.setText("PLAY");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jB_verbinden.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jB_verbinden.setText("Verbinden mit Verstärker");
+        jB_verbinden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jB_verbindenActionPerformed(evt);
             }
         });
 
-        jButton4.setText("STOP ");
-
-        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel5.setText("Schließe ein Mobilgerät an!");
+        jButton1.setText("Zurück");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog_AUXLayout = new javax.swing.GroupLayout(jDialog_AUX.getContentPane());
         jDialog_AUX.getContentPane().setLayout(jDialog_AUXLayout);
@@ -201,40 +207,36 @@ public class Touch extends javax.swing.JFrame {
                 .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog_AUXLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog_AUXLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jDialog_AUXLayout.createSequentialGroup()
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(jDialog_AUXLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jB_verbinden, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE))))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jDialog_AUXLayout.setVerticalGroup(
             jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_AUXLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(40, 40, 40)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jB_verbinden, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(45, 45, 45))
         );
 
         jDialog_USB.setTitle("USB");
-        jDialog_USB.setMinimumSize(new java.awt.Dimension(800, 480));
+        jDialog_USB.setAlwaysOnTop(true);
+        jDialog_USB.setMaximumSize(new java.awt.Dimension(800, 450));
+        jDialog_USB.setMinimumSize(new java.awt.Dimension(800, 450));
         jDialog_USB.setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -282,36 +284,47 @@ public class Touch extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Kein USB-Stick erkannt!");
 
+        jButton2.setText("Zurück");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialog_USBLayout = new javax.swing.GroupLayout(jDialog_USB.getContentPane());
         jDialog_USB.getContentPane().setLayout(jDialog_USBLayout);
         jDialog_USBLayout.setHorizontalGroup(
             jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_USBLayout.createSequentialGroup()
-                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jDialog_USBLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog_USBLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addGroup(jDialog_USBLayout.createSequentialGroup()
                                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton_Previous, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(120, 120, 120)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton_Next, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jButton_Next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_Stop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jDialog_USBLayout.setVerticalGroup(
             jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog_USBLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(75, 75, 75)
+                .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -328,7 +341,11 @@ public class Touch extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Seminarkurs TGM 12/2: Raspberry-Radio");
-        setMinimumSize(new java.awt.Dimension(800, 480));
+        setAlwaysOnTop(true);
+        setMaximumSize(new java.awt.Dimension(800, 450));
+        setMinimumSize(new java.awt.Dimension(800, 450));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 450));
         setResizable(false);
 
         jB_Internet.setText("Bluetooth");
@@ -352,9 +369,6 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jL_Time.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jL_Time.setText("--:--");
-
         jB_USB.setText("USB");
         jB_USB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,6 +383,13 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
+        jB_Beenden.setText("Beenden");
+        jB_Beenden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_BeendenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -376,23 +397,21 @@ public class Touch extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jB_Internet, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_Bluetooth, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_USB, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_Neustart))
-                .addContainerGap(437, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jL_Time, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jB_Bluetooth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jB_Neustart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jB_Beenden, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 596, Short.MAX_VALUE))
+                    .addComponent(jB_Internet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jB_AUX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jB_USB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jL_Time, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(42, 42, 42)
                 .addComponent(jB_Bluetooth, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jB_Internet, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,9 +419,11 @@ public class Touch extends javax.swing.JFrame {
                 .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jB_USB, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jB_Neustart)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_Beenden)
+                    .addComponent(jB_Neustart))
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -483,12 +504,6 @@ public class Touch extends javax.swing.JFrame {
         MPD_Functions.pause(); //Hält die Wiedergabe an
     }//GEN-LAST:event_jB_StopActionPerformed
 
-    private void jS_VolumeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jS_VolumeStateChanged
-        // TODO add your handling code here:
-        Integer vol_i = jS_Volume.getValue();  //Stellt die Lautstärke Digital ein
-        MPD_Functions.setVolume(vol_i);
-    }//GEN-LAST:event_jS_VolumeStateChanged
-
     private void jC_RadiosenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_RadiosenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jC_RadiosenderActionPerformed
@@ -501,10 +516,6 @@ public class Touch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_StopActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_NextActionPerformed
@@ -512,6 +523,29 @@ public class Touch extends javax.swing.JFrame {
     private void jButton_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreviousActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_PreviousActionPerformed
+
+    private void jB_BeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BeendenActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jB_BeendenActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       // TODO add your handling code here:
+       jDialog_AUX.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jB_verbindenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_verbindenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_verbindenActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jDialog_Internet.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jDialog_USB.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -548,14 +582,17 @@ public class Touch extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_AUX;
+    private javax.swing.JButton jB_Beenden;
     private javax.swing.JButton jB_Bluetooth;
     private javax.swing.JButton jB_Internet;
     private javax.swing.JButton jB_Neustart;
     private javax.swing.JButton jB_Play;
     private javax.swing.JButton jB_Stop;
     private javax.swing.JButton jB_USB;
+    private javax.swing.JButton jB_verbinden;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton_Next;
     private javax.swing.JButton jButton_Play;
     private javax.swing.JButton jButton_Previous;
@@ -565,7 +602,6 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog_Bluetooth;
     private javax.swing.JDialog jDialog_Internet;
     private javax.swing.JDialog jDialog_USB;
-    private static javax.swing.JLabel jL_Time;
     private javax.swing.JLabel jL_note;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -574,8 +610,5 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jP_Bild;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSlider jS_Volume;
-    private javax.swing.JSlider jSlider2;
     // End of variables declaration//GEN-END:variables
 }
