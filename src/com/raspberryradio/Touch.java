@@ -58,8 +58,8 @@ public class Touch extends javax.swing.JFrame {
 
         jDialog_Internet.setTitle("Internet");
         jDialog_Internet.setAlwaysOnTop(true);
-        jDialog_Internet.setMaximumSize(new java.awt.Dimension(800, 450));
         jDialog_Internet.setMinimumSize(new java.awt.Dimension(800, 450));
+        jDialog_Internet.setUndecorated(true);
         jDialog_Internet.setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -79,7 +79,7 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jC_Radiosender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Radiosender","Bailrigg","BigFM","Blackbeats","ClubTimeFM","HousFM" }));
+        jC_Radiosender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Radiosender","AfterhourFM","Bailrigg","BigFM","Blackbeats","ClubTimeFM","HousFM","NDR1" }));
         jC_Radiosender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_RadiosenderActionPerformed(evt);
@@ -128,11 +128,11 @@ public class Touch extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jB_Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jP_Bild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jDialog_InternetLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialog_InternetLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         jDialog_InternetLayout.setVerticalGroup(
@@ -157,7 +157,6 @@ public class Touch extends javax.swing.JFrame {
 
         jDialog_Bluetooth.setTitle("Bluetooth");
         jDialog_Bluetooth.setAlwaysOnTop(true);
-        jDialog_Bluetooth.setMaximumSize(new java.awt.Dimension(800, 450));
         jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 450));
         jDialog_Bluetooth.setResizable(false);
 
@@ -174,8 +173,8 @@ public class Touch extends javax.swing.JFrame {
 
         jDialog_AUX.setTitle("AUX");
         jDialog_AUX.setAlwaysOnTop(true);
-        jDialog_AUX.setMaximumSize(new java.awt.Dimension(800, 450));
         jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 450));
+        jDialog_AUX.setUndecorated(true);
         jDialog_AUX.setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -209,7 +208,7 @@ public class Touch extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog_AUXLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,8 +234,8 @@ public class Touch extends javax.swing.JFrame {
 
         jDialog_USB.setTitle("USB");
         jDialog_USB.setAlwaysOnTop(true);
-        jDialog_USB.setMaximumSize(new java.awt.Dimension(800, 450));
         jDialog_USB.setMinimumSize(new java.awt.Dimension(800, 450));
+        jDialog_USB.setUndecorated(true);
         jDialog_USB.setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -301,7 +300,7 @@ public class Touch extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog_USBLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -345,7 +344,6 @@ public class Touch extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 450));
         setMinimumSize(new java.awt.Dimension(800, 450));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 450));
         setResizable(false);
 
         jB_Internet.setText("Bluetooth");
@@ -466,6 +464,8 @@ public class Touch extends javax.swing.JFrame {
         String HouseFM = "HouseFM";
         String noradio = "Radiosender";
         String nothing = "";
+        String Afterhour = "AfterhourFM";
+        String Ndr1 = "NDR1";
         
         jL_note.setVisible(false);
         
@@ -492,6 +492,16 @@ public class Touch extends javax.swing.JFrame {
         if(Radiosender.equals(HouseFM)){
             MPD_Functions.clear();
             MPD_Functions.loadPlaylist("HouseFM");
+            MPD_Functions.play(1);
+        }
+        if(Radiosender.equals(Afterhour)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("afterhours.fm");
+            MPD_Functions.play(1);
+        }
+        if(Radiosender.equals(Ndr1)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("ndr1");
             MPD_Functions.play(1);
         }
         if(Radiosender.equals(noradio)|| Radiosender.equals(nothing)){
