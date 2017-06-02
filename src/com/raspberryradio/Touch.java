@@ -50,7 +50,6 @@ public class Touch extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jB_Internet = new javax.swing.JButton();
-        jB_Bluetooth = new javax.swing.JButton();
         jB_AUX = new javax.swing.JButton();
         jB_USB = new javax.swing.JButton();
         jB_Neustart = new javax.swing.JButton();
@@ -346,17 +345,10 @@ public class Touch extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jB_Internet.setText("Bluetooth");
+        jB_Internet.setText("Internet");
         jB_Internet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_InternetActionPerformed(evt);
-            }
-        });
-
-        jB_Bluetooth.setText("Internet");
-        jB_Bluetooth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_BluetoothActionPerformed(evt);
             }
         });
 
@@ -395,13 +387,12 @@ public class Touch extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jB_Bluetooth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jB_Neustart)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_Beenden, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 596, Short.MAX_VALUE))
                     .addComponent(jB_Internet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jB_Neustart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jB_Beenden, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 534, Short.MAX_VALUE))
                     .addComponent(jB_AUX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jB_USB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -410,32 +401,20 @@ public class Touch extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jB_Bluetooth, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jB_Internet, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jB_USB, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jB_Internet, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_AUX, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_USB, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB_Beenden)
-                    .addComponent(jB_Neustart))
+                    .addComponent(jB_Beenden, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jB_Neustart, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jB_InternetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_InternetActionPerformed
-        // TODO add your handling code here:
-        jDialog_Bluetooth.setVisible(true);
-    }//GEN-LAST:event_jB_InternetActionPerformed
-
-    private void jB_BluetoothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BluetoothActionPerformed
-        // TODO add your handling code here:
-        jDialog_Internet.setVisible(true);
-    }//GEN-LAST:event_jB_BluetoothActionPerformed
 
     private void jB_AUXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AUXActionPerformed
         // TODO add your handling code here:
@@ -557,6 +536,11 @@ public class Touch extends javax.swing.JFrame {
         jDialog_USB.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jB_InternetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_InternetActionPerformed
+        // TODO add your handling code here:
+        jDialog_Internet.setVisible(true);
+    }//GEN-LAST:event_jB_InternetActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -593,7 +577,6 @@ public class Touch extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB_AUX;
     private javax.swing.JButton jB_Beenden;
-    private javax.swing.JButton jB_Bluetooth;
     private javax.swing.JButton jB_Internet;
     private javax.swing.JButton jB_Neustart;
     private javax.swing.JButton jB_Play;
