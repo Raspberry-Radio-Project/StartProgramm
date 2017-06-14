@@ -34,10 +34,8 @@ public class Touch extends javax.swing.JFrame {
         jC_Radiosender = new javax.swing.JComboBox<>();
         jL_note = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jDialog_Bluetooth = new javax.swing.JDialog();
         jDialog_AUX = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jB_verbinden = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jDialog_USB = new javax.swing.JDialog();
@@ -154,22 +152,6 @@ public class Touch extends javax.swing.JFrame {
 
         jL_note.setVisible(false);
 
-        jDialog_Bluetooth.setTitle("Bluetooth");
-        jDialog_Bluetooth.setAlwaysOnTop(true);
-        jDialog_Bluetooth.setMinimumSize(new java.awt.Dimension(800, 450));
-        jDialog_Bluetooth.setResizable(false);
-
-        javax.swing.GroupLayout jDialog_BluetoothLayout = new javax.swing.GroupLayout(jDialog_Bluetooth.getContentPane());
-        jDialog_Bluetooth.getContentPane().setLayout(jDialog_BluetoothLayout);
-        jDialog_BluetoothLayout.setHorizontalGroup(
-            jDialog_BluetoothLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jDialog_BluetoothLayout.setVerticalGroup(
-            jDialog_BluetoothLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
-
         jDialog_AUX.setTitle("AUX");
         jDialog_AUX.setAlwaysOnTop(true);
         jDialog_AUX.setMinimumSize(new java.awt.Dimension(800, 450));
@@ -179,11 +161,8 @@ public class Touch extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         jLabel4.setText("AUX");
 
-        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel5.setText("Schließe ein Mobilgerät an!");
-
         jB_verbinden.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jB_verbinden.setText("Verbinden mit Verstärker");
+        jB_verbinden.setText("Verbinden / Trennen");
         jB_verbinden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_verbindenActionPerformed(evt);
@@ -210,11 +189,7 @@ public class Touch extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog_AUXLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addGroup(jDialog_AUXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDialog_AUXLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jB_verbinden, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE))))
+                        .addComponent(jB_verbinden, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jDialog_AUXLayout.setVerticalGroup(
@@ -226,9 +201,7 @@ public class Touch extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(jB_verbinden, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(45, 45, 45))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jDialog_USB.setTitle("USB");
@@ -265,14 +238,14 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jButton_Next.setText("NEXT");
+        jButton_Next.setText("Nächster Song");
         jButton_Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_NextActionPerformed(evt);
             }
         });
 
-        jButton_Previous.setText("PREVIOUS");
+        jButton_Previous.setText("Vorheriger Song");
         jButton_Previous.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_PreviousActionPerformed(evt);
@@ -498,19 +471,19 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jC_RadiosenderActionPerformed
 
     private void jButton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PlayActionPerformed
-        // TODO add your handling code here:
+        MPD_Functions.play(); 
     }//GEN-LAST:event_jButton_PlayActionPerformed
 
     private void jButton_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StopActionPerformed
-        // TODO add your handling code here:
+        MPD_Functions.stop();
     }//GEN-LAST:event_jButton_StopActionPerformed
 
     private void jButton_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NextActionPerformed
-        // TODO add your handling code here:
+        MPD_Functions.next();
     }//GEN-LAST:event_jButton_NextActionPerformed
 
     private void jButton_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreviousActionPerformed
-        // TODO add your handling code here:
+        MPD_Functions.previous();
     }//GEN-LAST:event_jButton_PreviousActionPerformed
 
     private void jB_BeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BeendenActionPerformed
@@ -518,26 +491,22 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_BeendenActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       // TODO add your handling code here:
-       jDialog_AUX.dispose();
+       jDialog_AUX.dispose(); //Schließt den Dialog
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jB_verbindenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_verbindenActionPerformed
-        // TODO add your handling code here:
+        SerialConnection.change(); //Wechselt den Audioeingang von dem Verstärker
     }//GEN-LAST:event_jB_verbindenActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        jDialog_Internet.dispose();
+        jDialog_Internet.dispose(); //Schließt den Dialog
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        jDialog_USB.dispose();
+        jDialog_USB.dispose(); //Schließt den Dialog
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jB_InternetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_InternetActionPerformed
-        // TODO add your handling code here:
         jDialog_Internet.setVisible(true);
     }//GEN-LAST:event_jB_InternetActionPerformed
 
@@ -592,7 +561,6 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Stop;
     private javax.swing.JComboBox<String> jC_Radiosender;
     private javax.swing.JDialog jDialog_AUX;
-    private javax.swing.JDialog jDialog_Bluetooth;
     private javax.swing.JDialog jDialog_Internet;
     private javax.swing.JDialog jDialog_USB;
     private javax.swing.JLabel jL_note;
@@ -600,7 +568,6 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jP_Bild;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -33,13 +33,16 @@ public class StartProgramm {
         
         System.out.println("Ordnerstruktur anpassen...");
         
-        ExecuteCommand.executeCMD("sudo chmod g+w /var/lib/mpd/music/ /var/lib/mpd/playlists/");
-        ExecuteCommand.executeCMD("sudo chgrp audio /var/lib/mpd/music/ /var/lib/mpd/playlists/");
+        ExecuteCommand.executeCMD("sudo chmod g+w /var/lib/mpd/music/ /var/lib/mpd/playlists/");    //Schreib- und Leserechte werden gesetzt.
+        ExecuteCommand.executeCMD("sudo chgrp audio /var/lib/mpd/music/ /var/lib/mpd/playlists/");  //Setzt die Gruppenzugehörigkeit von Ordner und Dateien
         
         System.out.println("Start: GUI");
         
         Touch touch = new Touch(); //Erstellt Objekt touch für die Oberfäche
         touch.setVisible(true); //Macht die GUI sichtbar für den Nutzer
+        
+        //Serielle Schnittstelle wird verwendet, um dem Verstärker mitzuteilen, dass das Radio eingeschalten wurde.
+        SerialConnection.connect();
         
         System.out.println("...Ending");
     }

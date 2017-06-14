@@ -27,10 +27,16 @@ public class MPD_Functions {
         
     }*/
     
-    //Beginnt Abspielen einer Playlist
+    //Beginnt Abspielen einer Playlist mit Parameter
     public static void play(int i){
         String i_str = Integer.toString(i);
         String str = "mpc play " + i_str;
+        ExecuteCommand.executeCMD(str);
+    }
+    
+    ////Beginnt Abspielen einer Playlist ohne Parameter
+    public static void play(){
+        String str = "mpc play";
         ExecuteCommand.executeCMD(str);
     }
     
@@ -40,7 +46,19 @@ public class MPD_Functions {
         ExecuteCommand.executeCMD(str);
     }
     
-    //Stoppt bzw. beginnt wieder mit abspielen
+    //Spielt vorherigen Song in der Playlist
+    public static void previous(){ 
+        String str = "mpc prev";
+        ExecuteCommand.executeCMD(str);
+    }
+    
+    //Stoppt die Wiedergabe
+    public static void stop(){
+        String str = "mpc stop";
+        ExecuteCommand.executeCMD(str);
+    }
+    
+    //Pausiert bzw. beginnt wieder mit abspielen
     public static void pause(){
         String str = "mpc pause";
         ExecuteCommand.executeCMD(str);
