@@ -10,7 +10,7 @@ import jssc.SerialPortException;
 
 public class SerialConnection {
     static void connect(){
-        SerialPort serialPort = new SerialPort("/dev/ttyACM0"); //Dateipfad des SerialChips.
+        SerialPort serialPort = new SerialPort("/dev/ttyUSB0"); //Dateipfad des SerialChips.
         try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
@@ -24,7 +24,7 @@ public class SerialConnection {
     }
     
     static void change(){
-        SerialPort serialPort = new SerialPort("/dev/ttyACM0"); //Dateipfad des SerialChips.
+        SerialPort serialPort = new SerialPort("/dev/ttyUSB0"); //Dateipfad des SerialChips.
         try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
