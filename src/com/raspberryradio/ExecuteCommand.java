@@ -37,10 +37,27 @@ public class ExecuteCommand {
         }
         return s2[0]; //returns first line
     }
-
+    
+    //Überprüft ob ein USB-Stick als 4. Gerät erkannt wurde
+    public static boolean activeusb(){
+        String str ="lsusb -s 4";
+        String answ = executeCMD(str);
+        System.out.println(answ);
+        
+        if(("null").equals(answ)){
+            System.out.println("Kein USB-Stick erkannt.");
+            return false;
+        }else{
+            System.out.println("USB Stick erkannt:");
+            System.out.println(answ);
+            return true;
+        }
+    }
+    
+    //versucht Adminrechte zu ereichen
     public static boolean rootPermissions() {
 
-        String str = "sudo -i"; //versucht Adminrechte zu ereichen
+        String str = "sudo -i"; 
         try {
             int i = Integer.parseInt(executeCMD(str));
 
