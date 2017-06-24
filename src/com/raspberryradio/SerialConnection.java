@@ -9,9 +9,9 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 
 public class SerialConnection {
-
+    static SerialPort serialPort = new SerialPort("/dev/ttyUSB0");
+    
     static void connect() {
-        SerialPort serialPort = new SerialPort("/dev/ttyUSB0");
         try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: "
@@ -27,7 +27,6 @@ public class SerialConnection {
     }
 
     static void change() {
-        SerialPort serialPort = new SerialPort("/dev/ttyUSB0");
         try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: "
