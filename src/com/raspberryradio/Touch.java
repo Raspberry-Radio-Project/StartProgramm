@@ -400,7 +400,7 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_USBActionPerformed
 
     private void jB_NeustartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_NeustartActionPerformed
-        // TODO add your handling code here:
+        SerialConnection.disconnect();
         String str = "sudo reboot";
         ExecuteCommand.executeCMD(str);
     }//GEN-LAST:event_jB_NeustartActionPerformed
@@ -487,6 +487,7 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_PreviousActionPerformed
 
     private void jB_BeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BeendenActionPerformed
+        SerialConnection.disconnect();
         System.exit(0);
     }//GEN-LAST:event_jB_BeendenActionPerformed
 
