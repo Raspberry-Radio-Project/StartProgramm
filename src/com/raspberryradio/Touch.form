@@ -115,7 +115,7 @@
             <Component class="javax.swing.JComboBox" name="jC_Radiosender">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Radiosender&quot;,&quot;AfterhourFM&quot;,&quot;Bailrigg&quot;,&quot;BigFM&quot;,&quot;Blackbeats&quot;,&quot;ClubTimeFM&quot;,&quot;HousFM&quot;,&quot;NDR1&quot; })" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Radiosender&quot;,&quot;AfterhourFM&quot;,&quot;Antenne&quot;,&quot;BigFM&quot;,&quot;NDR1&quot;,&quot;Rockantenne&quot;,&quot;Rockantenne Alternative&quot;,&quot;Rockantenne Classic Perlen&quot;,&quot;Rockantenne Heavy Metal&quot;,&quot;Schlagerparadies&quot;,&quot;Sunhine&quot;,&quot;Sveriges Radio&quot;,&quot;SWR1&quot;,&quot;WDR&quot; })" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -250,7 +250,6 @@
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton_Play" min="-2" pref="276" max="-2" attributes="0"/>
@@ -289,9 +288,7 @@
                       <Component id="jButton_Stop" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton_Play" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -310,15 +307,28 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="693" max="32767" attributes="0"/>
+                  <Component id="jLabel_songname" alignment="0" pref="693" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="180" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jLabel_songname" min="-2" pref="58" max="-2" attributes="0"/>
+                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel_songname">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="jButton_Play">
           <Properties>
@@ -351,14 +361,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_PreviousActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="cc" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Kein USB-Stick erkannt!"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>

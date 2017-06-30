@@ -41,11 +41,11 @@ public class Touch extends javax.swing.JFrame {
         jDialog_USB = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel_songname = new javax.swing.JLabel();
         jButton_Play = new javax.swing.JButton();
         jButton_Stop = new javax.swing.JButton();
         jButton_Next = new javax.swing.JButton();
         jButton_Previous = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jB_Internet = new javax.swing.JButton();
         jB_AUX = new javax.swing.JButton();
@@ -76,7 +76,7 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jC_Radiosender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Radiosender","AfterhourFM","Bailrigg","BigFM","Blackbeats","ClubTimeFM","HousFM","NDR1" }));
+        jC_Radiosender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Radiosender","AfterhourFM","Antenne","BigFM","NDR1","Rockantenne","Rockantenne Alternative","Rockantenne Classic Perlen","Rockantenne Heavy Metal","Schlagerparadies","Sunhine","Sveriges Radio","SWR1","WDR" }));
         jC_Radiosender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_RadiosenderActionPerformed(evt);
@@ -213,15 +213,20 @@ public class Touch extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         jLabel2.setText("USB");
 
+        jLabel_songname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 693, Short.MAX_VALUE)
+            .addComponent(jLabel_songname, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel_songname, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jButton_Play.setText("PLAY");
@@ -252,9 +257,6 @@ public class Touch extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel3.setText("Kein USB-Stick erkannt!");
-
         jButton2.setText("Zurück");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,7 +279,6 @@ public class Touch extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
                             .addGroup(jDialog_USBLayout.createSequentialGroup()
                                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,9 +306,7 @@ public class Touch extends javax.swing.JFrame {
                 .addGroup(jDialog_USBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Stop)
                     .addComponent(jButton_Play))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(31, 31, 31))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -395,7 +394,7 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_AUXActionPerformed
 
     private void jB_USBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_USBActionPerformed
-        // TODO add your handling code here:
+        ExecuteCommand.executeCMD("mpc update");
         jDialog_USB.setVisible(true);
     }//GEN-LAST:event_jB_USBActionPerformed
 
@@ -408,54 +407,101 @@ public class Touch extends javax.swing.JFrame {
     private void jB_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_PlayActionPerformed
         // TODO add your handling code here:
         String Radiosender;
-        Radiosender = (String) jC_Radiosender.getSelectedItem();      
-        String Bailrigg = "Bailrigg";
-        String BigFM = "BigFM";
-        String Blackbeats = "Blackbeats";
-        String ClubTimeFM = "ClubTimeFM";
-        String HouseFM = "HouseFM";
+        Radiosender = (String) jC_Radiosender.getSelectedItem();
+        
+        //new
+        String afterhour = "AfterhourFM";
+        String antenne = "Antenne";
+        String bigfm = "BigFM";
+        String ndr1 = "NDR1";
+        String rockantenne = "Rockantenne";
+        String rockantenne_alternativ = "Rockantenne Alternative";
+        String rockantenne_classic_perlen = "Rockantenne Classic Perlen";
+        String rockantenne_heavy_metal = "Rockantenne Heavy Metal";
+        String schlagerparadies = "Schlagerparadies";
+        String sunshine = "Sunhine";
+        String sveriges_radio = "Sveriges Radio";
+        String swr = "SWR1";
+        String wdr = "WDR";
+        
+        //nicht auswählbar:
         String noradio = "Radiosender";
         String nothing = "";
-        String Afterhour = "AfterhourFM";
-        String Ndr1 = "NDR1";
-        
+                
         jL_note.setVisible(false);
         
-        if(Radiosender.equals(Bailrigg)){
+        if(Radiosender.equals(afterhour)){
             MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("Bailrigg"); //Name des Onlinestreams
+            MPD_Functions.loadPlaylist("afterhours.fm"); //Name des Onlinestreams
             MPD_Functions.play(1);
         }
-        if(Radiosender.equals(BigFM)){
+        if(Radiosender.equals(antenne)){
             MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("BigFM");
+            MPD_Functions.loadPlaylist("antenne");
             MPD_Functions.play(1);
         }      
-        if(Radiosender.equals(Blackbeats)){
+        if(Radiosender.equals(bigfm)){
             MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("Blackbeats");
+            MPD_Functions.loadPlaylist("bigfm");
             MPD_Functions.play(1);
         }
-        if(Radiosender.equals(ClubTimeFM)){
-            MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("ClubTimeFM");
-            MPD_Functions.play(1);
-        }
-        if(Radiosender.equals(HouseFM)){
-            MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("HouseFM");
-            MPD_Functions.play(1);
-        }
-        if(Radiosender.equals(Afterhour)){
-            MPD_Functions.clear();
-            MPD_Functions.loadPlaylist("afterhours.fm");
-            MPD_Functions.play(1);
-        }
-        if(Radiosender.equals(Ndr1)){
+        if(Radiosender.equals(ndr1)){
             MPD_Functions.clear();
             MPD_Functions.loadPlaylist("ndr1");
             MPD_Functions.play(1);
         }
+        if(Radiosender.equals(rockantenne)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Rockantenne");
+            MPD_Functions.play(1);
+        }
+        if(Radiosender.equals(rockantenne_alternativ)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Rockantenne_Alternative");
+            MPD_Functions.play(1);
+        }
+        if(Radiosender.equals(rockantenne_classic_perlen)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Rockantenne_Classic_Perlen");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(rockantenne_heavy_metal)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("Rockantenne_Heavy_Metal");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(schlagerparadies)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("schlagerparadies");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(sunshine)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("sunshine");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(sveriges_radio)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("sverigesradio");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(swr)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("swr");
+            MPD_Functions.play(1);
+        }
+        
+        if(Radiosender.equals(wdr)){
+            MPD_Functions.clear();
+            MPD_Functions.loadPlaylist("wdr");
+            MPD_Functions.play(1);
+        }
+        
         if(Radiosender.equals(noradio)|| Radiosender.equals(nothing)){
             jL_note.setVisible(true);
         }
@@ -471,19 +517,30 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jC_RadiosenderActionPerformed
 
     private void jButton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PlayActionPerformed
-        MPD_Functions.play(); 
+        MPD_Functions.update();
+        MPD_Functions.addallsongs();
+        MPD_Functions.play();
+        
+        String answ = ExecuteCommand.executeCMD("mpc");
+        jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_PlayActionPerformed
 
     private void jButton_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StopActionPerformed
         MPD_Functions.stop();
+        String answ = ExecuteCommand.executeCMD("mpc");
+        jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_StopActionPerformed
 
     private void jButton_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NextActionPerformed
         MPD_Functions.next();
+        String answ = ExecuteCommand.executeCMD("mpc");
+        jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_NextActionPerformed
 
     private void jButton_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreviousActionPerformed
         MPD_Functions.previous();
+        String answ = ExecuteCommand.executeCMD("mpc");
+        jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_PreviousActionPerformed
 
     private void jB_BeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BeendenActionPerformed
@@ -567,8 +624,8 @@ public class Touch extends javax.swing.JFrame {
     private javax.swing.JLabel jL_note;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel_songname;
     private javax.swing.JPanel jP_Bild;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

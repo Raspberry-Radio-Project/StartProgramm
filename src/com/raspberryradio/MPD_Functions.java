@@ -69,4 +69,7 @@ public class MPD_Functions {
         String str = "mpc clear";
         ExecuteCommand.executeCMD(str);
     }
+    public static void addallsongs() {
+        ExecuteCommand.executeCMD("mpc listall | mpc add");
+    }
 }
