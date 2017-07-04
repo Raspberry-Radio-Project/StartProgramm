@@ -70,6 +70,7 @@ public class MPD_Functions {
         ExecuteCommand.executeCMD(str);
     }
     public static void addallsongs() {
+        System.out.println("mpc listall | mpc add");
         ExecuteCommand.executeCMD("mpc listall | mpc add");
     }
 }

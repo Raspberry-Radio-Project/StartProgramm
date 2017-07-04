@@ -394,7 +394,12 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_AUXActionPerformed
 
     private void jB_USBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_USBActionPerformed
-        ExecuteCommand.executeCMD("mpc update");
+        System.out.println("mpc clear");
+        ExecuteCommand.executeCMD("mpc clear");
+        
+        System.out.println("mpc load usbsongs");
+        ExecuteCommand.executeCMD("mpc load usbsongs");
+        
         jDialog_USB.setVisible(true);
     }//GEN-LAST:event_jB_USBActionPerformed
 
@@ -517,8 +522,7 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jC_RadiosenderActionPerformed
 
     private void jButton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PlayActionPerformed
-        MPD_Functions.update();
-        MPD_Functions.addallsongs();
+        System.out.println("Play");
         MPD_Functions.play();
         
         String answ = ExecuteCommand.executeCMD("mpc");
@@ -526,19 +530,25 @@ public class Touch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_PlayActionPerformed
 
     private void jButton_StopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StopActionPerformed
+        System.out.println("mpc stop");
         MPD_Functions.stop();
+        System.out.println("mpc");
         String answ = ExecuteCommand.executeCMD("mpc");
         jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_StopActionPerformed
 
     private void jButton_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NextActionPerformed
+        System.out.println("mpc next");
         MPD_Functions.next();
+        System.out.println("mpc");
         String answ = ExecuteCommand.executeCMD("mpc");
         jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_NextActionPerformed
 
     private void jButton_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreviousActionPerformed
+        System.out.println("mpc prev");
         MPD_Functions.previous();
+        System.out.println("mpc");
         String answ = ExecuteCommand.executeCMD("mpc");
         jLabel_songname.setText(answ);
     }//GEN-LAST:event_jButton_PreviousActionPerformed

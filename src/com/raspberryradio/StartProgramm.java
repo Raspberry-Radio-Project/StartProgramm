@@ -37,6 +37,7 @@ public class StartProgramm {
         ExecuteCommand.executeCMD("sudo chmod g+w /var/lib/mpd/music/ /var/lib/mpd/playlists/");    //Schreib- und Leserechte werden gesetzt.
         ExecuteCommand.executeCMD("sudo chgrp audio /var/lib/mpd/music/ /var/lib/mpd/playlists/");  //Setzt die Gruppenzugehörigkeit von Ordner und Dateien
         */
+        
         System.out.println("Starting: GUI");
         
         Touch touch = new Touch(); //Erstellt Objekt touch für die Oberfäche
